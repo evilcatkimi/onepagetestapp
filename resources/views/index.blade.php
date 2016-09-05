@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container" ng-controller="MemberController">
-		<h2>MEMBER'S LIST :{{ ten }}</h2>
+		<h2>MEMBER'S LIST :<% ten %></h2>
 
 		<form>
 			<div class="form-group">
@@ -57,10 +57,10 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="mem in members | orderBy:sortType:sortReverse | filter:searchhere"">
-					<td>{{ mem.id }}</td>
-					<td>{{ mem.name }}</td>
-					<td>{{ mem.age }}</td>
-					<td>{{ mem.address }}</td>
+					<td><% mem.id %></td>
+					<td><% mem.name %></td>
+					<td><% mem.age %></td>
+					<td><% mem.address %></td>
 					<td>
 						<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit',mem.id)">Sửa</button>
 						<button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(mem.id)">Xóa</button>
@@ -75,7 +75,7 @@
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">{{ frmTitle }}</h4>
+				<h4 class="modal-title"><% frmTitle %></h4>
 			  </div>
 			  <div class="modal-body">
 				<form name="frmMember" class="form-horizontal">
@@ -84,14 +84,17 @@
 						<label for="inputEmail3" class="col-sm-3 control-label">Name</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="name" name="name" placeholder="Please enter your name" ng-model="member.name" ng-required="true" />
-							<span id="helpBlock2" class="help-block" ng-show="frmMember.name.$error.required">Vui lòng nhập họ tên</span>
+							<span id="helpBlock2" class="help-block" ng-show="frmMember.name.$error.required">Please enter your name</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Age</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="age" name="age" placeholder="Please enter your age" ng-model="member.age" ng-required="true" />
+							<input type="number" class="form-control" id="age" name="age" placeholder="Please enter your age" ng-model="member.age" ng-required="true" min="0" max="100"/>
 							<span id="helpBlock2" class="help-block" ng-show="frmMember.age.$error.required">Please enter your age</span>
+							<span id="helpBlock2" class="help-block" ng-show="frmMember.age.$error.max">Your age is > 100!</span>
+							<span id="helpBlock2" class="help-block" ng-show="frmMember.age.$error.min">Your age is < 0 Really ?</span>
+							<span id="helpBlock2" class="help-block" ng-show="frmMember.age.$error.number">Age must be a number!</span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -104,7 +107,7 @@
 				</form>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-primary" ng-disabled="frmMember.$invalid" ng-click="save(state,id)">Lưu</button>
+				<button id="btn-luu" type="button" class="btn btn-primary" ng-disabled="frmMember.$invalid" ng-click="save(state,id)">Lưu</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

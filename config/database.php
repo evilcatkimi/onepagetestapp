@@ -52,6 +52,12 @@ return [
             'prefix' => '',
         ],
 
+        'testing' => [  
+    		'driver'   => 'sqlite',
+    		'database' => ':memory:',
+    		'prefix'   => '',
+		],//PHP UNIT TEST    
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
