@@ -1,4 +1,5 @@
 app.controller('MemberController' ,function ($scope,$http,API) {
+
     $http.get(API + 'list').success(function (response) {
         $scope.members = response;
     });
