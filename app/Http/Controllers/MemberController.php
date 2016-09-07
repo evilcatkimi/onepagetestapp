@@ -25,14 +25,12 @@ class MemberController extends Controller
             $file = $request->file('image');
             $file->move('img',$photo);
             $member->image = $photo;
-            //$member->image = "got photo";
-        }//ma am ???
+        }
         else{
             $member->image = "nophoto.jpg";
         }
         $member->save();
         //--- End of upload file
-        //return $member;
     }
 
     public function getEdit ($id) {

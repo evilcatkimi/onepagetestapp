@@ -30,13 +30,10 @@ app.controller('MemberController' ,function ($scope,$http,API) {
     $scope.save = function (state,id) {
         if (state == "add") {
             var url = API + 'add';
-            //var data = $.param($scope.member);
-
             $http({
                 method: 'POST',
                 url: url,
                 headers: {
-                    // 'Content-Type': 'multipart/form-data'
                     'Content-Type': undefined
                 },
                 data: {
@@ -60,8 +57,6 @@ app.controller('MemberController' ,function ($scope,$http,API) {
 
 
                 .success(function (data) {
-                    //alert($scope.member.image);
-                    //alert('ok');
                     location.reload();
                     $('#model-form').modal('toggle');//how?
                 })
@@ -77,7 +72,6 @@ app.controller('MemberController' ,function ($scope,$http,API) {
                 method: 'POST',
                 url: url,
                 headers: {
-                    // 'Content-Type': 'multipart/form-data'
                     'Content-Type': undefined
                 },
                 data: {
@@ -91,18 +85,14 @@ app.controller('MemberController' ,function ($scope,$http,API) {
                     angular.forEach(data, function (value, key) {
                         formData.append(key, value);
                     });
-
                     var headers = headersGetter();
                     delete headers['Content-Type'];
-
                     return formData;
                 }
             })
 
 
                 .success(function (data) {
-                    //alert($scope.member.image);
-                    //alert('ok');
                     location.reload();
                     $('#model-form').modal('toggle');//how?
                 })
@@ -114,7 +104,7 @@ app.controller('MemberController' ,function ($scope,$http,API) {
     }
 
     $scope.confirmDelete = function (id) {
-        var isConfirmDelete = confirm('Bạn có chắc muốn xóa dòng dữ liệu này hay không');
+        var isConfirmDelete = confirm('Are you sure about that?');
         if (isConfirmDelete) {
             $http.get(API + 'delete/' + id)
                 .success(function (response) {
@@ -123,7 +113,7 @@ app.controller('MemberController' ,function ($scope,$http,API) {
                 })
                 .error(function(response) {
                     console.log(response);
-                    alert('Xảy ra lỗi vui lòng kiểm tra log');
+                    alert('Error, please check the logs');
                 });;
         } else {
             return false;

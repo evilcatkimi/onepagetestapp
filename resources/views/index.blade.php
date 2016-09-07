@@ -66,8 +66,8 @@
 		<td><% mem.address %></td>
 		<td><img src="img/<% mem.image %>" width="50px" height="50px"/></td>
 		<td>
-			<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit',mem.id)">Sửa</button>
-			<button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(mem.id)">Xóa</button>
+			<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit',mem.id)">Edit</button>
+			<button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(mem.id)">Delete</button>
 		</td>
 		</tr>
 		</tbody>
@@ -112,8 +112,6 @@
 							<label for="inputfile" class="col-sm-3 control-label">Image</label>
 							<div class="col-sm-9">
 								<!-- IMAGE UPLOAD HERE-->
-								<!-- KHAC DI TI -->
-								<label for="image">image</label>
 								<input type="file" file="member.image" name="image" id="image" class="form-control" accept="image/*">
 							</div>
 						</div>
