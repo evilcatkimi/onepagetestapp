@@ -19,8 +19,20 @@ class MemberController extends Controller
         $member->name       = $request->name;
         $member->age        = $request->age;
         $member->address    = $request->address;
+
+        $photo = time().".jpg";
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $file->move('img',$photo);
+            $member->image = $photo;
+            //$member->image = "got photo";
+        }//ma am ???
+        else{
+            $member->image = "nophoto.jpg";
+        }
         $member->save();
-        return "Add done";
+        //--- End of upload file
+        //return $member;
     }
 
     public function getEdit ($id) {
@@ -32,6 +44,14 @@ class MemberController extends Controller
         $member->name       = $request->name;
         $member->age        = $request->age;
         $member->address      = $request->address;
+
+        $photo = time().".jpg";
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $file->move('img',$photo);
+            $member->image = $photo;
+        }//Khi edit, n?u không s?a ?nh th? cho qua
+
         $member->save();
         return "Edit done";
     }
