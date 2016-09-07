@@ -112,6 +112,7 @@
 							<label for="inputfile" class="col-sm-3 control-label">Image</label>
 							<div class="col-sm-9">
 								<!-- IMAGE UPLOAD HERE-->
+								<!-- KHAC DI TI -->
 								<label for="image">image</label>
 								<input type="file" file="member.image" name="image" id="image" class="form-control" accept="image/*">
 							</div>
