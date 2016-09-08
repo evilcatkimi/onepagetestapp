@@ -15,7 +15,7 @@
 		<div class="form-group">
 			<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-search"></i></div>
-				<input type="text" class="form-control" placeholder="Search everything" ng-model="searchhere">
+				<input type="text" class="form-control" placeholder="Search everything" ng-model="searchhere" id="search">
 			</div>
 		</div>
 	</form>
@@ -115,7 +115,6 @@
 								<input type="file" file="member.image" name="image" id="image" class="form-control" accept="image/*">
 							</div>
 						</div>
-
 					</form>
 				</div>
 				<div class="modal-footer">

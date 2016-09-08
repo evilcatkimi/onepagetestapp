@@ -8,8 +8,15 @@ class UserTest extends TestCase
 {
     public function testBasicExample()
     {
-        $this->visit('/')->type('Nguyen Hoang Anh', 'name')
+        $absolutePath = public_path() .'/img/scuti_logo.png';
+        $this->visit('/public/')
+            ->click('btn-add')
+            ->see('frmMember')
+            ->type('Nguyen Hoang Anh', 'name')
             ->type('23','age')
-            ->type('Viet Nam','address');
+            ->type('Viet Nam','address')
+            ->attach($absolutePath, 'image')
+            ->click('btn-luu')
+            ->seePageIs('/');
     }
 }

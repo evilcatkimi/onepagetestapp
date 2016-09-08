@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('abc', function () {
+    return "abc please";
+});
+
 Route::get('list',['uses' => 'MemberController@getList']);
 Route::post('add',['uses' => 'MemberController@getAdd']);
 Route::get('edit/{id}',['uses' => 'MemberController@getEdit']);
