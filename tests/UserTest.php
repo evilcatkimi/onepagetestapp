@@ -43,7 +43,7 @@ class UserTest extends TestCase
             ->type('','address')
             ->attach($absolutePath, 'image')
             //->click('btn-luu') Can't click button because AngularJS blocked button
-            ->see('Please enter your Address');//AngularJS
+            ->see('Please enter your Address');//AngularJS checked
     }
 
     public function testWithOutImage(){

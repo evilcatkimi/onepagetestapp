@@ -21,6 +21,6 @@ Route::get('abc', function () {
 
 Route::get('list',['uses' => 'MemberController@ListMember']);
 Route::post('add',['uses' => 'MemberController@AddMember']);
-Route::get('edit/{id}',['uses' => 'MemberController@getEdit']);
-Route::post('edit/{id}',['uses' => 'MemberController@postEdit']);
-Route::get('delete/{id}',['uses' => 'MemberController@getDelete']);
+Route::get('edit/{id}',['uses' => 'MemberController@get_EditMember']);
+Route::post('edit/{id}',['uses' => 'MemberController@post_EditMember']);
+Route::get('delete/{id}',['uses' => 'MemberController@DeleteMember']);

@@ -46,11 +46,11 @@ class MemberController extends Controller
         }
     }
 
-    public function getEdit ($id) {
+    public function get_EditMember ($id) {
         return Member::findOrFail($id);
     }
 
-    public function postEdit (Request $request,$id) {
+    public function post_EditMember (Request $request,$id) {
 
         if(DB::connection()) {//Check DB connection before Edit
             $member = Member::findOrFail($id);
@@ -83,7 +83,7 @@ class MemberController extends Controller
         }
     }
 
-    public function getDelete ($id) {
+    public function DeleteMember ($id) {
         if(DB::connection()){//Check DB connection before delete
             $member = Member::findOrFail($id);
             if($member->image !== "nophoto.jpg"){//if have picture
