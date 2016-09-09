@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class UserTest extends TestCase
+class AgeTest extends TestCase
 {
     public function testWithInvalidAgeGreaterThan100 (){
         $absolutePath = public_path() .'/img/scuti_logo.png';
