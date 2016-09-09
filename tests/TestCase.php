@@ -7,7 +7,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'http://localhost:8080';
 
     /**
      * Creates the application.
@@ -21,5 +21,14 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    public function __call($method, $args)
+    {
+        if (in_array($method, ['get', 'post', 'put', 'patch', 'delete']))
+        {
+            return $this->call($method, $args[0]);
+        }
+        throw new BadMethodCallException;
     }
 }

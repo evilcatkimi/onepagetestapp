@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\DB;
 class MemberController extends Controller
 {
 
-    public function getList () {
+    public function ListMember () {
         return Member::orderBy('id','ASC')->get();
     }
 
-    public function getAdd (Request $request) {
+    public function AddMember (Request $request) {
 
         if(DB::connection()) {//Check DB connection before Edit
             $member = new Member;

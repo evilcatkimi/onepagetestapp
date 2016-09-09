@@ -19,8 +19,8 @@ Route::get('abc', function () {
     return "abc please";
 });
 
-Route::get('list',['uses' => 'MemberController@getList']);
-Route::post('add',['uses' => 'MemberController@getAdd']);
+Route::get('list',['uses' => 'MemberController@ListMember']);
+Route::post('add',['uses' => 'MemberController@AddMember']);
 Route::get('edit/{id}',['uses' => 'MemberController@getEdit']);
 Route::post('edit/{id}',['uses' => 'MemberController@postEdit']);
 Route::get('delete/{id}',['uses' => 'MemberController@getDelete']);
